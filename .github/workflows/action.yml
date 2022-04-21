@@ -25,7 +25,7 @@ jobs:
     if: ${{ join(github.event.push.commits.removed) == ''}} # && github.event.pull_request.deleted == false
     env:
       MY_VAR0: ${{ github.event.push.commits.removed }}
-      MY_VAR1: ${{ github.event.push.deleted == false }}
+      MY_VAR1: ${{ github.event.push.deleted }}
       MY_VAR2: ${{ github.event.pull_request.deleted }}
       # MY_VAR3: ${{ github.event.push.pusher.name }} #no difference between delete and create.
       # MY_VAR4: ${{ github.event.pull_request.merged == true }} #no difference between delete and create.
