@@ -25,7 +25,7 @@ jobs:
     if: ${{ join(github.event.push.commits.removed) == ''}} # && github.event.pull_request.deleted == false
     env:
       MY_VAR: ${{ join(github.event.push.commits.removed) == ''}}
-      MY_VAR1: ${{ github.event.push.deleted == false }}
+      MY_VAR1: ${{ github.event.push.deleted == true }}
       MY_VAR2: ${{ join(github.event.pull_request.deleted) == ''}}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
