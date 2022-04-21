@@ -27,6 +27,7 @@ jobs:
       MY_VAR: ${{ join(github.event.push.commits.removed) == ''}}
       MY_VAR1: ${{ github.event.push.deleted == false }}
       MY_VAR2: ${{ join(github.event.pull_request.deleted) == ''}}
+      MY_VAR3: ${{ github.event.push.pusher.name }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
