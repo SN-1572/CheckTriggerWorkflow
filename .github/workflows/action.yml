@@ -27,8 +27,9 @@ jobs:
       MY_VAR: ${{ join(github.event.push.commits.removed) == ''}}
       MY_VAR1: ${{ github.event.push.deleted == false }}
       MY_VAR2: ${{ join(github.event.pull_request.deleted) == ''}}
-      MY_VAR3: ${{ github.event.push.pusher.name }}
-      MY_VAR4: ${{ github.event.pull_request.merged == true }}
+      # MY_VAR3: ${{ github.event.push.pusher.name }} #no difference between delete and create.
+      # MY_VAR4: ${{ github.event.pull_request.merged == true }} #no difference between delete and create.
+      MY_VAR3: ${{ github.event.pull_request.fugahoge }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -42,7 +43,7 @@ jobs:
       - name: Install dependencies
         run: |
           echo "this is test."
-          echo $MY_VAR , $MY_VAR1 , $MY_VAR2 , $MY_VAR3 , $MY_VAR4
+          echo $MY_VAR , $MY_VAR1 , $MY_VAR2 , $MY_VAR3
 #          python -m pip install --upgrade pip
 #          pip3 install readme2tex
 #      - name: Build readmes
