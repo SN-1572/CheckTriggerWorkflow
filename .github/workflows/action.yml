@@ -30,7 +30,7 @@ jobs:
       # MY_VAR3: ${{ github.event.push.pusher.name }} #no difference between delete and create.
       # MY_VAR4: ${{ github.event.pull_request.merged == true }} #no difference between delete and create.
       MY_VAR3: ${{ github.event.pull_request.fugahoge }} # if key is not exist then return anything (echo output is blank).
-      MY_VAR4: ${{ github.event.pull_request.id }}
+      MY_VAR4: ${{ github.event.push.pusher }}
       MY_VAR5: ${{ github.event_name }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
