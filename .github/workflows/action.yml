@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: |
           echo "this is test."
-          echo $MY_VAR MY_VAR2
+          echo $MY_VAR $MY_VAR2
           python -m pip install --upgrade pip
           pip3 install readme2tex
       - name: Build readmes
