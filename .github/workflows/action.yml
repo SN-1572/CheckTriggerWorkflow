@@ -36,6 +36,7 @@ jobs:
       - name: Install dependencies
         run: |
           echo "this is test."
+          echo github.event.push.commits.removed
           python -m pip install --upgrade pip
           pip3 install readme2tex
       - name: Build readmes
