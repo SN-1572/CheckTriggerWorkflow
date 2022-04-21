@@ -30,9 +30,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Install pdflatex and rename
-        run: sudo apt install texlive-latex-base rename
+#      - uses: actions/checkout@v2
+#      - name: Install pdflatex and rename
+#        run: sudo apt install texlive-latex-base rename
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
@@ -41,17 +41,17 @@ jobs:
         run: |
           echo "this is test."
           echo $MY_VAR $MY_VAR1 $MY_VAR2
-          python -m pip install --upgrade pip
-          pip3 install readme2tex
-      - name: Build readmes
-        run: |
-          find . -type f -name '*.tex.md' -execdir python3 -m readme2tex --readme "{}" --nocdn --output "{}.temp" \;
-      - name: Copy built .md files
-        run: |
-          find . -type f -exec rename -f 's/.tex.md.temp/.md/' '{}' \;
-      - name: Commit the built files
-        run: |
-          git config --global user.name '${{github.repository_owner}}'
-          git config --global user.email '${{github.actor}}@users.noreply.github.com'
-          git add . && git commit -m "Built the .tex.md files"
-          git push
+#          python -m pip install --upgrade pip
+#          pip3 install readme2tex
+#      - name: Build readmes
+#        run: |
+#          find . -type f -name '*.tex.md' -execdir python3 -m readme2tex --readme "{}" --nocdn --output "{}.temp" \;
+ #     - name: Copy built .md files
+  #      run: |
+   #       find . -type f -exec rename -f 's/.tex.md.temp/.md/' '{}' \;
+    #  - name: Commit the built files
+     #   run: |
+      #    git config --global user.name '${{github.repository_owner}}'
+       #   git config --global user.email '${{github.actor}}@users.noreply.github.com'
+        #  git add . && git commit -m "Built the .tex.md files"
+         # git push
