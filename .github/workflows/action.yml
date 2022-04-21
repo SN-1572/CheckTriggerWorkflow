@@ -25,6 +25,7 @@ jobs:
     if: ${{ join(github.event.push.commits.removed) == ''}} # && github.event.pull_request.deleted == false
     env:
       MY_VAR: ${{ join(github.event.push.commits.removed) == ''}}
+      MY_VAR2: ${{ join(github.event.pull_request.deleted) == ''}}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -38,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: |
           echo "this is test."
-          echo $MY_VAR
+          echo $MY_VAR MY_VAR2
           python -m pip install --upgrade pip
           pip3 install readme2tex
       - name: Build readmes
